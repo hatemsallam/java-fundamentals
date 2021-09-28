@@ -1,17 +1,17 @@
 import java.util.*;
 public class Main {
     public static void main(String[] args) {
-        int[] array = roll(6);
-        for(int i=0; i<array.length;i++) {
-            System.out.print(array[i]);
-        };
-        int[] array2 = {1,2,3,4};
-        boolean var = containsDuplicates(array2);
-        System.out.print(var);
-
-        int[] array3 = {1,2,3,4,5};
-        double var2 = average(array3);
-        System.out.print(var2);
+//        int[] array = roll(6);
+//        for(int i=0; i<array.length;i++) {
+//            System.out.print(array[i]);
+//        };
+//        int[] array2 = {1,2,3,4};
+//        boolean var = containsDuplicates(array2);
+//        System.out.print(var);
+//
+//        int[] array3 = {1,2,3,4,5};
+//        double var2 = average(array3);
+//        System.out.print(var2);
 
         int[][] weeklyMonthTemperatures = {
                 {66, 64, 58, 65, 71, 57, 60},
@@ -19,8 +19,26 @@ public class Main {
                 {55, 54, 60, 53, 59, 57, 61},
                 {65, 56, 55, 52, 55, 62, 57}
         };
-        int[] array4 =   lowAvg(weeklyMonthTemperatures);
-        System.out.print(Arrays.toString(array4));
+//        int[] array4 =   lowAvg(weeklyMonthTemperatures);
+//        System.out.print(Arrays.toString(array4));
+
+        String result = maps(weeklyMonthTemperatures);
+        System.out.println(result);
+
+
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+
+        String winner = tally(votes);
+        System.out.println(winner + " received the most votes!");
 
     }
     public static int[] roll(int num) {
@@ -86,5 +104,66 @@ public class Main {
 
 
     }
+    public static String maps(int [][]arr){
+
+        int high=0 ;
+        int min=0;
+        Set <Integer> set=new HashSet<Integer>();
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                set.add(arr[i][j]);
+            }
+        }
+        for (Integer i : set) {
+            if (high==0 && min==0){
+                high=i;
+                min=i;
+            }else if(i>high){
+                high=i;
+            }else if (i<min){
+                min =i;
+            }
+        }
+        System.out.println("high: " + high);
+        System.out.println("min: "+ min);
+        for (int i = min+1; i < high; i++) {
+            if (!set.contains(i)){
+                System.out.println("Never saw temperature: " +i);
+            }
+        }
+        return "high:"+String.valueOf(high) + " min: "+ String.valueOf(min);
+    }
+
+    public static String tally(List<String> arr){
+        int count=1;
+        String highVoteName="";
+        Map<String,Integer> vot=new HashMap<String,Integer>();
+        for (String name : arr) {
+            if (!vot.keySet().contains(name)){
+                vot.put(name,1);
+            }else {
+
+                count =  (int)vot.get(name);
+                count++;
+                vot.put(name,count);
+
+            }
+        }
+        count=0;
+
+        for (String s:vot.keySet())
+        {
+            if (vot.get(s) > count){
+                count=vot.get(s);
+                highVoteName=s;
+            }
+
+        }
+
+        return highVoteName;
+    }
 
 }
+
+
+
