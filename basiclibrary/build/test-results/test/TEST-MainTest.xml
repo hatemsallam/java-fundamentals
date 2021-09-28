@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="MainTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-09-28T17:10:15" hostname="LTUCSTUDENT-L10" time="0.052">
+  <properties/>
+  <testcase name="mapsTest()" classname="MainTest" time="0.052"/>
+  <system-out><![CDATA[high: 72
+min: 51
+Never saw temperature: 63
+Never saw temperature: 67
+Never saw temperature: 68
+Never saw temperature: 69
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
