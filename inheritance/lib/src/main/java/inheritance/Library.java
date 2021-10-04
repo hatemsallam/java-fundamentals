@@ -21,6 +21,17 @@ public class Library {
         res2.addReview("Very Good" , "Hatem Sallam" , 5);
         System.out.println(res2);
 
+        Theater theater = new Theater("amman");
+        theater.addMovie("Hello");
+        System.out.println(theater.getMovies());
+//        theater.removeMovie("Hello");
+//        System.out.println(theater.getMovies());
+        theater.addMovie("New Movie");
+        theater.addReview(new Review("hello" , "Hatem" , 4), "Hello");
+        theater.addReview(new Review("hello" , "Hatem" , 4), "Hellfo");
+        theater.addReview(new Review("hello" , "Hatem" , 4));
+        System.out.println(theater.getReviews());
+
 
 
     }
